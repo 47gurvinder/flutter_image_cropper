@@ -1,3 +1,8 @@
+## NEXT
+
+- fix Swift Package Manager resolution when an app also uses
+  `DKImagePickerController` by restoring TOCropViewController 2.8 compatibility
+
 ## 12.2.0
 
 - fix issue on iOS: `Lexical or Preprocessor Issue (Xcode): 'TOCropViewController/TOCropViewConstants.h' file not found`

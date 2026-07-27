@@ -62,14 +62,28 @@
       _compressFormat = @"jpg";
     }
 
-    NSMutableArray *allowedAspectRatios = [NSMutableArray new];
+    NSMutableArray<NSNumber *> *allowedAspectRatios = [NSMutableArray new];
     NSString *customAspectRatioName;
     NSDictionary *customAspectRatioData;
     for (NSDictionary *preset in aspectRatioPresets) {
       if (preset) {
-        TOCropViewControllerAspectRatioPreset* presetValue =
+        TOCropViewControllerAspectRatioPreset presetValue =
             [self parseAspectRatioPresetFromDict:preset];
-          [allowedAspectRatios addObject:presetValue];
+        if (presetValue == TOCropViewControllerAspectRatioPresetCustom) {
+          customAspectRatioName = preset[@"name"];
+          customAspectRatioData = preset[@"data"];
+        } else {
+          [allowedAspectRatios addObject:@(presetValue)];
+        }
+      }
+    }
+    if (customAspectRatioName && customAspectRatioData) {
+      NSNumber *customRatioX = customAspectRatioData[@"ratio_x"];
+      NSNumber *customRatioY = customAspectRatioData[@"ratio_y"];
+      if (customRatioX && customRatioY) {
+        cropViewController.customAspectRatioName = customAspectRatioName;
+        cropViewController.customAspectRatio =
+            CGSizeMake(customRatioX.floatValue, customRatioY.floatValue);
       }
     }
     cropViewController.allowedAspectRatios = allowedAspectRatios;
@@ -78,7 +92,8 @@
                  forViewController:cropViewController];
 
     if (ratioX != (id)[NSNull null] && ratioY != (id)[NSNull null]) {
-      cropViewController.aspectRatioPreset = CGSizeMake([ratioX floatValue], [ratioY floatValue]);
+      cropViewController.customAspectRatio =
+          CGSizeMake([ratioX floatValue], [ratioY floatValue]);
       cropViewController.resetAspectRatioEnabled = NO;
       cropViewController.aspectRatioPickerButtonHidden = YES;
       cropViewController.aspectRatioLockDimensionSwapEnabled = YES;
@@ -250,40 +265,26 @@
   }
 }
 
-- (TOCropViewControllerAspectRatioPreset*)parseAspectRatioPresetFromDict:(NSDictionary *)dict {
+- (TOCropViewControllerAspectRatioPreset)parseAspectRatioPresetFromDict:(NSDictionary *)dict {
   NSString *name = dict[@"name"];
-  NSDictionary *ratioData = dict[@"data"];
-  TOCropViewControllerAspectRatioPreset *object = [[TOCropViewControllerAspectRatioPreset alloc] initWithSize:CGSizeZero title:@"Original"];
-  NSBundle *resourceBundle = TO_CROP_VIEW_RESOURCE_BUNDLE_FOR_OBJECT(object);
   if ([@"square" isEqualToString:name]) {
-    return [[TOCropViewControllerAspectRatioPreset alloc] initWithSize:CGSizeMake(1.0f, 1.0f)
-                                                                 title:NSLocalizedStringFromTableInBundle(@"Square", @"TOCropViewControllerLocalizable", resourceBundle, nil)];
+    return TOCropViewControllerAspectRatioPresetSquare;
   } else if ([@"original" isEqualToString:name]) {
-    return [[TOCropViewControllerAspectRatioPreset alloc] initWithSize:CGSizeZero
-                                                                 title:NSLocalizedStringFromTableInBundle(@"Original", @"TOCropViewControllerLocalizable", resourceBundle, nil)];
+    return TOCropViewControllerAspectRatioPresetOriginal;
   } else if ([@"3x2" isEqualToString:name]) {
-    return [[TOCropViewControllerAspectRatioPreset alloc] initWithSize:CGSizeMake(3.0f, 2.0f)
-                                                                 title:@"3:2"];
+    return TOCropViewControllerAspectRatioPreset3x2;
   } else if ([@"4x3" isEqualToString:name]) {
-    return [[TOCropViewControllerAspectRatioPreset alloc] initWithSize:CGSizeMake(4.0f, 3.0f)
-                                                                 title:@"4:3"];
+    return TOCropViewControllerAspectRatioPreset4x3;
   } else if ([@"5x3" isEqualToString:name]) {
-    return [[TOCropViewControllerAspectRatioPreset alloc] initWithSize:CGSizeMake(5.0f, 3.0f)
-                                                                 title:@"5:3"];
+    return TOCropViewControllerAspectRatioPreset5x3;
   } else if ([@"5x4" isEqualToString:name]) {
-    return [[TOCropViewControllerAspectRatioPreset alloc] initWithSize:CGSizeMake(5.0f, 4.0f)
-                                                                 title:@"5:4"];
+    return TOCropViewControllerAspectRatioPreset5x4;
   } else if ([@"7x5" isEqualToString:name]) {
-    return [[TOCropViewControllerAspectRatioPreset alloc] initWithSize:CGSizeMake(7.0f, 5.0f)
-                                                                 title:@"7:5"];
+    return TOCropViewControllerAspectRatioPreset7x5;
   } else if ([@"16x9" isEqualToString:name]) {
-    return [[TOCropViewControllerAspectRatioPreset alloc] initWithSize:CGSizeMake(16.0f, 9.0f)
-                                                                 title:@"16:9"];
+    return TOCropViewControllerAspectRatioPreset16x9;
   } else {
-      NSNumber *ratioX = ratioData[@"ratio_x"];
-      NSNumber *ratioY = ratioData[@"ratio_y"];
-    return [[TOCropViewControllerAspectRatioPreset alloc] initWithSize:CGSizeMake([ratioX floatValue], [ratioY floatValue])
-                                                                 title:name];
+    return TOCropViewControllerAspectRatioPresetCustom;
   }
 }
 

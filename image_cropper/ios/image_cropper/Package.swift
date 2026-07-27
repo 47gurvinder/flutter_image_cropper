@@ -11,7 +11,10 @@ let package = Package(
         .library(name: "image-cropper", targets: ["image_cropper"])
     ],
     dependencies: [
-        .package(url: "https://github.com/TimOliver/TOCropViewController.git", from: "3.1.1"),
+        // Keep this on the latest 2.x release. DKImagePickerController also
+        // depends on TOCropViewController 2.x, and SwiftPM cannot resolve two
+        // different major versions of the same package in one application.
+        .package(url: "https://github.com/TimOliver/TOCropViewController.git", from: "2.8.0"),
     ],
     targets: [
         .target(
