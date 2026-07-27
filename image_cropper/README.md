@@ -1,13 +1,15 @@
-# Image Cropper
+# image_cropper_gdx_plus
 
-[![pub package](https://img.shields.io/pub/v/image_cropper.svg)](https://pub.dartlang.org/packages/image_cropper)
+[![pub package](https://img.shields.io/pub/v/image_cropper_gdx_plus.svg)](https://pub.dev/packages/image_cropper_gdx_plus)
+[![BSD-3-Clause license](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](LICENSE)
+[![GitHub issues](https://img.shields.io/github/issues/47gurvinder/flutter_image_cropper)](https://github.com/47gurvinder/flutter_image_cropper/issues)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/47gurvinder/flutter_image_cropper)](https://github.com/47gurvinder/flutter_image_cropper/pulls)
 
-
-A Flutter plugin for Android, iOS and Web supports cropping images. This plugin is based on three different native libraries so it comes with different UI between these platforms.
+A community-maintained Flutter plugin for cropping images on Android, iOS, and Web. The plugin uses native or browser-specific cropper libraries, so its interface differs slightly by platform.
 
 ## Introduction
 
-**Image Cropper** doesn't manipulate images in Dart codes directly, instead, the plugin uses [Platform Channel](https://flutter.dev/docs/development/platform-integration/platform-channels) to expose Dart APIs that Flutter application can use to communicate with three very powerful native libraries ([uCrop](https://github.com/Yalantis/uCrop), [TOCropViewController](https://github.com/TimOliver/TOCropViewController) and [Cropper.js](https://github.com/fengyuanchen/cropperjs)) to crop and rotate images. Because of that, all credits belong to these libraries.
+**image_cropper_gdx_plus** does not manipulate images directly in Dart. It uses [Flutter platform channels](https://docs.flutter.dev/platform-integration/platform-channels) to expose APIs backed by [uCrop](https://github.com/Yalantis/uCrop), [TOCropViewController](https://github.com/TimOliver/TOCropViewController), and [Cropper.js](https://github.com/fengyuanchen/cropperjs). All credits for the underlying cropper implementations belong to their respective projects.
 
 ### uCrop - Yalantis 
 [![GitHub watchers](https://img.shields.io/github/watchers/Yalantis/uCrop.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/Yalantis/uCrop/watchers/)  [![GitHub stars](https://img.shields.io/github/stars/Yalantis/uCrop.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/Yalantis/uCrop/stargazers/)  [![GitHub forks](https://img.shields.io/github/forks/Yalantis/uCrop.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/Yalantis/uCrop/network/) [![](https://jitpack.io/v/Yalantis/uCrop.svg)](https://jitpack.io/#Yalantis/uCrop) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -15,16 +17,16 @@ A Flutter plugin for Android, iOS and Web supports cropping images. This plugin 
 This project aims to provide an ultimate and flexible image cropping experience. Made in [Yalantis](https://yalantis.com/?utm_source=github)
 
 <p align="center">
-	<img src="https://github.com/hnvn/flutter_image_cropper/blob/master/image_cropper/screenshots/cropper_android.gif?raw=true" width="200"  />
+  <img src="https://raw.githubusercontent.com/47gurvinder/flutter_image_cropper/master/image_cropper/screenshots/cropper_android.gif" width="200" alt="Android image cropper" />
 </p>
 
 ### TOCropViewController - Tim Oliver
-[![GitHub watchers](https://img.shields.io/github/watchers/TimOliver/TOCropViewController.svg?style=social&label=Watch&maxAge=2592000)](https://GitHub.com/TimOliver/TOCropViewController/watchers/)  [![GitHub stars](https://img.shields.io/github/stars/TimOliver/TOCropViewController.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/TimOliver/TOCropViewController/stargazers/)  [![GitHub forks](https://img.shields.io/github/forks/TimOliver/TOCropViewController.svg?style=social&label=Fork&maxAge=2592000)](https://GitHub.com/TimOliver/TOCropViewController/network/) [![Version](https://img.shields.io/cocoapods/v/TOCropViewController.svg?style=flat)](https://cocoadocs.org/docsets/TOCropViewController) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/TimOliver/TOCropViewController/master/LICENSE)
+[![GitHub watchers](https://img.shields.io/github/watchers/TimOliver/TOCropViewController.svg?style=social&label=Watch&maxAge=2592000)](https://github.com/TimOliver/TOCropViewController/watchers/)  [![GitHub stars](https://img.shields.io/github/stars/TimOliver/TOCropViewController.svg?style=social&label=Star&maxAge=2592000)](https://github.com/TimOliver/TOCropViewController/stargazers/)  [![GitHub forks](https://img.shields.io/github/forks/TimOliver/TOCropViewController.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/TimOliver/TOCropViewController/network/) [![Version](https://img.shields.io/cocoapods/v/TOCropViewController.svg?style=flat)](https://cocoapods.org/pods/TOCropViewController) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/TimOliver/TOCropViewController/master/LICENSE)
 
 `TOCropViewController` is an open-source `UIViewController` subclass to crop out sections of `UIImage` objects, as well as perform basic rotations. It is excellent for things like editing profile pictures, or sharing parts of a photo online. It has been designed with the iOS Photos app editor in mind, and as such, behaves in a way that should already feel familiar to users of iOS.
 
 <p align="center">
-  <img src="https://github.com/hnvn/flutter_image_cropper/blob/master/image_cropper/screenshots/cropper_ios.gif?raw=true" width="200" />
+  <img src="https://raw.githubusercontent.com/47gurvinder/flutter_image_cropper/master/image_cropper/screenshots/cropper_ios.gif" width="200" alt="iOS image cropper" />
 </p>
 
 ### Cropper.js - Fengyuan Chen 
@@ -33,10 +35,32 @@ This project aims to provide an ultimate and flexible image cropping experience.
 JavaScript image cropper.
 
 <p align="center">
-  <img src="https://github.com/hnvn/flutter_image_cropper/blob/master/image_cropper/screenshots/cropper_web.png?raw=true" width="400"/>
+  <img src="https://raw.githubusercontent.com/47gurvinder/flutter_image_cropper/master/image_cropper/screenshots/cropper_web.png" width="400" alt="Web image cropper" />
 </p>
 
 ## How to install
+
+Add the package:
+
+```sh
+flutter pub add image_cropper_gdx_plus
+```
+
+Then import it:
+
+```dart
+import 'package:image_cropper_gdx_plus/image_cropper_gdx_plus.dart';
+```
+
+## Compatibility
+
+| Platform | Support | Backing library |
+| --- | --- | --- |
+| Android | Supported | [uCrop](https://github.com/Yalantis/uCrop) |
+| iOS | Supported (iOS 12+) | [TOCropViewController](https://github.com/TimOliver/TOCropViewController) |
+| Web | Supported | [Cropper.js](https://github.com/fengyuanchen/cropperjs) |
+
+This release requires Dart 3.6 or newer and Flutter 3.28 or newer. Windows, macOS, and Linux desktop platforms are not currently implemented.
 
 ### Android
 
@@ -49,9 +73,6 @@ JavaScript image cropper.
   android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 ````
 
-#### Note:
-- From v1.2.0, you need to migrate your android project to v2 embedding ([detail](https://github.com/flutter/flutter/wiki/Upgrading-pre-1.12-Android-projects))
- 
 ### iOS
 - No configuration required
 
@@ -298,7 +319,7 @@ If using `WebDialogBuilder` and `WebRouteBuilder` to customize cropper dialog an
 
 ````dart
 
-import 'package:image_cropper/image_cropper.dart';
+import 'package:image_cropper_gdx_plus/image_cropper_gdx_plus.dart';
 
 CroppedFile croppedFile = await ImageCropper().cropImage(
     sourcePath: imageFile.path,
@@ -337,10 +358,41 @@ class CropAspectRatioPresetCustom implements CropAspectRatioPresetData {
     
 ````
 
-</details>
-
 ## Credits
 
 - Android: [uCrop](https://github.com/Yalantis/uCrop) created by [Yalantis](https://github.com/Yalantis)
-- iOS: [TOCropViewController](https://github.com/TimOliver/TOCropViewController) created by [Tim Oliver](https://twitter.com/TimOliverAU)
+- iOS: [TOCropViewController](https://github.com/TimOliver/TOCropViewController) created by [Tim Oliver](https://github.com/TimOliver)
 - Web: [Cropper.js](https://github.com/fengyuanchen/cropperjs) created by [Fengyuan Chen](https://github.com/fengyuanchen)
+
+This package is derived from [hnvn/flutter_image_cropper](https://github.com/hnvn/flutter_image_cropper), originally maintained by Hung Duy Ha and its contributors. The original BSD-3-Clause copyright and license text remain intact.
+
+## Maintained Package
+
+This is an independently published, community-maintained continuation of the original `image_cropper` project. It exists to provide an additional maintained release path while preserving upstream history, attribution, API behavior, and third-party credits. It is not presented as an official upstream release.
+
+## Feature Requests
+
+Feature requests and Pull Requests are always welcome.
+
+- [Request a feature](https://github.com/47gurvinder/flutter_image_cropper/issues/new?template=feature_request.yml)
+- [Report a bug](https://github.com/47gurvinder/flutter_image_cropper/issues)
+- [Open or review a Pull Request](https://github.com/47gurvinder/flutter_image_cropper/pulls)
+
+Please read [CONTRIBUTING.md](../CONTRIBUTING.md) before submitting a change.
+
+## Need Help?
+
+Professional help is available for Flutter consulting, package integration, plugin maintenance, upgrades, and custom Flutter development. Visit [gurwinderdevx.com](https://gurwinderdevx.com) to get in touch.
+
+## Maintainer
+
+Maintained by Gurwinder Singh.
+
+- [Website](https://gurwinderdevx.com)
+- [GitHub](https://github.com/47gurvinder)
+- [LinkedIn](https://www.linkedin.com/in/47gurvinder/)
+- [Upwork](https://www.upwork.com/freelancers/~01281f2b994bae6a1e)
+
+## License
+
+Licensed under the [BSD 3-Clause License](LICENSE). Copyright and attribution from the original project are preserved.

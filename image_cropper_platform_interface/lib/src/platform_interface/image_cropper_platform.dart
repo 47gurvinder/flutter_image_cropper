@@ -4,12 +4,13 @@
 
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
-import '../../image_cropper_platform_interface.dart';
+import '../../image_cropper_gdx_plus_platform_interface.dart';
 import '../method_channel/method_channel_image_cropper.dart';
 
-/// The interface that implementations of image_cropper must implement.
+/// The interface that implementations of image_cropper_gdx_plus must implement.
 ///
-/// Platform implementations should extend this class rather than implement it as `image_cropper`
+/// Platform implementations should extend this class rather than implement it as
+/// `image_cropper_gdx_plus`
 /// does not consider newly added methods to be breaking changes. Extending this class
 /// (using `extends`) ensures that the subclass will get the default implementation, while
 /// platform implementations that `implements` this interface will be broken by newly added

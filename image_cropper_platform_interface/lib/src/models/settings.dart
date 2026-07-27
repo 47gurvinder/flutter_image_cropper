@@ -244,7 +244,8 @@ class AndroidUiSettings extends PlatformUiSettings {
         'android.toolbar_color': int32(this.toolbarColor?.toARGB32()),
         'android.status_bar_light': this.statusBarLight,
         'android.nav_bar_light': this.navBarLight,
-        'android.toolbar_widget_color': int32(this.toolbarWidgetColor?.toARGB32()),
+        'android.toolbar_widget_color':
+            int32(this.toolbarWidgetColor?.toARGB32()),
         'android.background_color': int32(this.backgroundColor?.toARGB32()),
         'android.active_controls_widget_color':
             int32(this.activeControlsWidgetColor?.toARGB32()),

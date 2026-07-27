@@ -1,5 +1,3 @@
-library image_cropper_for_web;
-
 import 'dart:async';
 import 'dart:js_interop';
 
@@ -8,15 +6,15 @@ import 'dart:ui_web' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
-import 'package:image_cropper_for_web/src/cropper_dialog.dart';
-import 'package:image_cropper_for_web/src/cropper_page.dart';
-import 'package:image_cropper_platform_interface/image_cropper_platform_interface.dart';
+import 'package:image_cropper_gdx_plus_for_web/src/cropper_dialog.dart';
+import 'package:image_cropper_gdx_plus_for_web/src/cropper_page.dart';
+import 'package:image_cropper_gdx_plus_platform_interface/image_cropper_gdx_plus_platform_interface.dart';
 
 import 'src/interop/cropper_interop.dart';
 
 /// The web implementation of [ImageCropperPlatform].
 ///
-/// This class implements the `package:image_picker` functionality for the web.
+/// This class implements the `image_cropper_gdx_plus` functionality for Web.
 class ImageCropperPlugin extends ImageCropperPlatform {
   /// Registers this class as the default instance of [ImageCropperPlatform].
   static void registerWith(Registrar registrar) {

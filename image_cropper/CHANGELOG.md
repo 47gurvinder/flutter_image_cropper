@@ -1,7 +1,18 @@
-## NEXT
+## 1.0.0
 
-- fix Swift Package Manager resolution when an app also uses
-  `DKImagePickerController` by restoring TOCropViewController 2.8 compatibility
+- Initial community-maintained release as `image_cropper_gdx_plus`, based on upstream `image_cropper` 12.2.1.
+- Renamed the public dependency and import path to `image_cropper_gdx_plus`.
+- Continued Android, iOS 12+, and Web support with a minimum of Flutter 3.28 and Dart 3.6.
+- Retained TOCropViewController 2.8 compatibility so Swift Package Manager can resolve alongside `DKImagePickerController`.
+- Updated Android build-tool, Kotlin, Java 17, and Gradle memory settings for current Flutter compatibility.
+- Updated the iOS Swift Package Manager manifest for the renamed module and current FlutterFramework integration.
+- Migrated release, issue, and contribution links to the maintained fork.
+
+## Upstream history (`image_cropper`)
+
+## 12.2.1
+
+- iOS: upgrade `TOCropViewController` to v3.1.2.
 
 ## 12.2.0
 

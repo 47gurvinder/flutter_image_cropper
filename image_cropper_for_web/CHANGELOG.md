@@ -1,3 +1,11 @@
+## 1.0.0
+
+- Initial Web implementation release for `image_cropper_gdx_plus`.
+- Renamed the federated Web and platform-interface package dependencies.
+- Continued Cropper.js-based Web support with a minimum of Flutter 3.28 and Dart 3.6.
+
+## Upstream history (`image_cropper_for_web`)
+
 ## 7.0.0
 
 * update to the latest `image_cropper_platform_interface`

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:image_cropper_for_web/src/cropper_actionbar.dart';
-import 'package:image_cropper_platform_interface/image_cropper_platform_interface.dart';
+import 'package:image_cropper_gdx_plus_for_web/src/cropper_actionbar.dart';
+import 'package:image_cropper_gdx_plus_platform_interface/image_cropper_gdx_plus_platform_interface.dart';
 
 class CropperDialog extends StatefulWidget {
   final Widget cropper;
@@ -14,7 +14,7 @@ class CropperDialog extends StatefulWidget {
   final WebThemeData? themeData;
 
   const CropperDialog({
-    Key? key,
+    super.key,
     required this.cropper,
     required this.initCropper,
     required this.crop,
@@ -24,7 +24,7 @@ class CropperDialog extends StatefulWidget {
     required this.cropperContainerHeight,
     required this.translations,
     this.themeData,
-  }) : super(key: key);
+  });
 
   @override
   State<CropperDialog> createState() => _CropperDialogState();
@@ -139,20 +139,24 @@ class _CropperDialogState extends State<CropperDialog> {
         ),
       );
     } else {
-      return ButtonBar(
-        buttonPadding: const EdgeInsets.symmetric(horizontal: 16.0),
-        children: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            child: Text(widget.translations.cancelButton),
-          ),
-          ElevatedButton(
-            onPressed: () => _doCrop(),
-            child: Text(widget.translations.cropButton),
-          ),
-        ],
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        child: OverflowBar(
+          spacing: 8.0,
+          alignment: MainAxisAlignment.end,
+          children: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(widget.translations.cancelButton),
+            ),
+            ElevatedButton(
+              onPressed: () => _doCrop(),
+              child: Text(widget.translations.cropButton),
+            ),
+          ],
+        ),
       );
     }
   }
@@ -164,11 +168,13 @@ class _CropperDialogState extends State<CropperDialog> {
     });
     try {
       final result = await widget.crop();
+      if (!mounted) return;
       Navigator.of(context).pop(result);
       return;
     } catch (e) {
       debugPrint(e.toString());
     }
+    if (!mounted) return;
     setState(() {
       _processing = false;
     });

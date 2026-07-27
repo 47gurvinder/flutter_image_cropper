@@ -1,11 +1,16 @@
-name: image_cropper_platform_interface
-description: A common platform interface for the image_cropper plugin.
-repository: https://github.com/hnvn/flutter_image_cropper
-version: 8.0.0
+name: image_cropper_gdx_plus_platform_interface
+resolution: workspace
+description: A common platform interface for the image_cropper_gdx_plus plugin.
+version: 1.0.0
+homepage: https://gurwinderdevx.com
+repository: https://github.com/47gurvinder/flutter_image_cropper
+issue_tracker: https://github.com/47gurvinder/flutter_image_cropper/issues
+funding:
+  - https://buymeacoffee.com/gurwinderdevx
 
 environment:
   flutter: ">=3.28.0"
-  sdk: '>=3.3.0 <4.0.0'
+  sdk: '>=3.6.0 <4.0.0'
 
 dependencies:
   flutter:

@@ -1,16 +1,13 @@
-///
-/// * author: Hung Duy Ha (hunghd)
-/// * email: hunghd.yb@gmail.com
-///
-/// A plugin provides capability of manipulating an image including rotating
-/// and cropping.
-///
-/// Note that: this plugin is based on different native libraries depending on
-/// Android or iOS platform, so it shows different UI look and feel between
-/// those platforms.
-///
+//
+// Original upstream author: Hung Duy Ha (hunghd)
+// Email: hunghd.yb@gmail.com
+//
+// A plugin that provides image rotation and cropping.
+//
+// This plugin uses different native libraries on Android and iOS, so the
+// platform interfaces have a different look and feel.
 
-export 'package:image_cropper_platform_interface/image_cropper_platform_interface.dart'
+export 'package:image_cropper_gdx_plus_platform_interface/image_cropper_gdx_plus_platform_interface.dart'
     show
         CropAspectRatioPresetData,
         CropAspectRatioPreset,

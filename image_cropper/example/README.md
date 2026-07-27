@@ -1,8 +1,14 @@
-# image_cropper_example
+# image_cropper_gdx_plus example
 
-Demonstrates how to use the image_cropper plugin.
+Demonstrates image selection and cropping with `image_cropper_gdx_plus` on Android, iOS, and Web.
 
 ## Getting Started
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+From this directory, fetch dependencies and run the app:
+
+```sh
+flutter pub get
+flutter run
+```
+
+See the [package README](../README.md) for platform configuration and API usage.

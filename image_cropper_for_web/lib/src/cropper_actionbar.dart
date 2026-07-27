@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:image_cropper_platform_interface/image_cropper_platform_interface.dart';
+import 'package:image_cropper_gdx_plus_platform_interface/image_cropper_gdx_plus_platform_interface.dart';
 
 class CropperActionBar extends StatefulWidget {
   final Function(RotationAngle) onRotate;

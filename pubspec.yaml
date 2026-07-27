@@ -1,0 +1,12 @@
+name: image_cropper_gdx_plus_workspace
+publish_to: none
+
+environment:
+  sdk: '>=3.6.0 <4.0.0'
+
+workspace:
+  - image_cropper
+  - image_cropper/example
+  - image_cropper_for_web
+  - image_cropper_for_web/example
+  - image_cropper_platform_interface

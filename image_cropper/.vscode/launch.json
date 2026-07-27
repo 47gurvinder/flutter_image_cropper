@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "image_cropper",
+            "name": "image_cropper_gdx_plus",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "image_cropper (profile mode)",
+            "name": "image_cropper_gdx_plus (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"

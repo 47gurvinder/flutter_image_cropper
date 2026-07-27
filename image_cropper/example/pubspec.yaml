@@ -1,5 +1,7 @@
-name: image_cropper_example
-description: Demonstrates how to use the flutter_image_cropper plugin.
+name: image_cropper_gdx_plus_example
+resolution: workspace
+description: Demonstrates how to use the image_cropper_gdx_plus plugin.
+publish_to: none
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -10,13 +12,16 @@ description: Demonstrates how to use the flutter_image_cropper plugin.
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.5.4 <4.0.0'
+  sdk: '>=3.6.0 <4.0.0'
+  flutter: '>=3.28.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
   image_picker: ^1.1.2
+  dotted_border: ^2.1.0
+  image_cropper_gdx_plus: ^1.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -27,10 +32,6 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^5.0.0
-
-  dotted_border: ^2.1.0
-  image_cropper:
-    path: ../
 
 flutter:
 

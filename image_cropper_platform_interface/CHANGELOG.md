@@ -1,3 +1,11 @@
+## 1.0.0
+
+- Initial platform-interface release for `image_cropper_gdx_plus`.
+- Renamed the public platform-interface package while retaining the existing API.
+- Set the minimum supported versions to Flutter 3.28 and Dart 3.6.
+
+## Upstream history (`image_cropper_platform_interface`)
+
 ## 8.0.0
 
 * update Flutter constraint to minimum of 3.28.0 (to support `toARGB32()`)

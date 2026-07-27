@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:image_cropper/image_cropper.dart';
+import 'package:image_cropper_gdx_plus/image_cropper_gdx_plus.dart';
 import 'package:image_picker/image_picker.dart';
 
 void main() {
@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         colorScheme: ColorScheme.fromSwatch().copyWith(
-          background: const Color(0xFFFDF5EC),
+          surface: const Color(0xFFFDF5EC),
           primary: const Color(0xFFD0996F),
         ),
       ),
@@ -227,7 +227,9 @@ class _HomePageState extends State<HomePage> {
                     radius: const Radius.circular(12.0),
                     borderType: BorderType.RRect,
                     dashPattern: const [8, 4],
-                    color: Theme.of(context).highlightColor.withOpacity(0.4),
+                    color: Theme.of(
+                      context,
+                    ).highlightColor.withValues(alpha: 0.4),
                     child: Center(
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
